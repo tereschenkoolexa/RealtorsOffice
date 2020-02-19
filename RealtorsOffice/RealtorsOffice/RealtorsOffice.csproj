@@ -169,6 +169,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Realtor\Controllers\RealtorController.cs" />
+    <Compile Include="Areas\Realtor\RealtorAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -179,8 +181,13 @@
     <Compile Include="Migrations\202002191703267_Add User and Admin.Designer.cs">
       <DependentUpon>202002191703267_Add User and Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002191812344_Add Realtor.cs" />
+    <Compile Include="Migrations\202002191812344_Add Realtor.Designer.cs">
+      <DependentUpon>202002191812344_Add Realtor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApartmentsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +208,10 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Realtor\Views\web.config" />
+    <Content Include="Areas\Realtor\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Realtor\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Realtor\Views\Realtor\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -250,6 +261,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Realtor\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -267,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002191703267_Add User and Admin.resx">
       <DependentUpon>202002191703267_Add User and Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002191812344_Add Realtor.resx">
+      <DependentUpon>202002191812344_Add Realtor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

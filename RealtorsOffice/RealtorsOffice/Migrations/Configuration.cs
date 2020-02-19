@@ -24,12 +24,12 @@ namespace RealtorsOffice.Migrations
                 {
                     Name = "Admin",
                 };
-                IdentityRole roleUser = new IdentityRole()
+                IdentityRole roleRealtor = new IdentityRole()
                 {
-                    Name = "User",
+                    Name = "Realtor",
                 };
                 roleManager.Create(roleAdmin);
-                roleManager.Create(roleUser);
+                roleManager.Create(roleRealtor);
             }
             var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
             if (!userManager.Users.Any())
