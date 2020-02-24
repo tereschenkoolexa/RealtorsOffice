@@ -7,11 +7,16 @@ using System.Web;
 
 namespace RealtorsOffice.Entity.EntityModel
 {
-    [Table("Houses")]
-    public class HouseModel
+    public class NewApartmentsModel
+
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("NewBuildingOf")]
+        public int IdBuilding { get; set; }
+        public virtual NewBuildingModel NewBuildingOf { get; set; }
+        [Required]
+        public int CountRooms { get; set; }
         [Required]
         public int NumberRooms { get; set; }
         [Required]
@@ -19,17 +24,8 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public double Square { get; set; }
         [Required]
-        public bool Parking { get; set; }
-        [Required]
-        public bool Warming { get; set; }
-        [Required]
-        public bool Repair { get; set; }
-        [Required]
         public string Picture { get; set; }
         [Required]
-        public string StreetName { get; set; }
-        [Required]
-        public int Floors { get; set; }
-
+        public int Floor { get; set; }
     }
 }

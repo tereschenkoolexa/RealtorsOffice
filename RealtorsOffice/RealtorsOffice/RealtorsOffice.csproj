@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entity\EntityModel\ApartmentsModel.cs" />
+    <Compile Include="Entity\EntityModel\NewApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\HouseModel.cs" />
     <Compile Include="Entity\EntityModel\NewBuildingModel.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,8 +192,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApartmentsViewModel.cs" />
+    <Compile Include="Models\Communication\RealtorHouse.cs" />
+    <Compile Include="Models\Communication\RealtorNewBuilding.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MoreInfoRealtor.cs" />
+    <Compile Include="Models\Communication\RealtorApartment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
