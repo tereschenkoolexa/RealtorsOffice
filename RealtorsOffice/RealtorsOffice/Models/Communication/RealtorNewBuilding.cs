@@ -8,13 +8,14 @@ using System.Web;
 
 namespace RealtorsOffice.Models.Communication
 {
+    [Table("tblRealtorNewBuilding")]
     public class RealtorNewBuilding
     {
         [Key, ForeignKey("RealtorOf"), Column(Order = 1)]
-        public int IdRealtor { get; set; }
+        public string IdRealtor { get; set; }
         public virtual MoreInfoRealtor RealtorOf { get; set; }
 
-        [Key, ForeignKey("NewBuildingOf"), Column(Order = 4)]
+        [Key, ForeignKey("NewBuildingOf"), Column(Order = 2)]
         public int IdNewBuilding { get; set; }
         public virtual NewBuildingModel NewBuildingOf { get; set; }
     }

@@ -8,16 +8,15 @@ using System.Web;
 
 namespace RealtorsOffice.Models.Communication
 {
-    [Table("tblRealtorHouse")]
-    public class RealtorHouse
+    [Table("tblRealtorNewApartment")]
+    public class RealtorNewApartment
     {
         [Key, ForeignKey("RealtorOf"), Column(Order = 1)]
         public string IdRealtor { get; set; }
         public virtual MoreInfoRealtor RealtorOf { get; set; }
 
-        [Key, ForeignKey("HouseOf"), Column(Order = 2)]
+        [Key, ForeignKey("NewApartmentsOf"), Column(Order = 2)]
         public int IdHouse { get; set; }
-        public virtual HouseModel HouseOf { get; set; }
-
+        public virtual NewApartmentsModel NewApartmentsOf { get; set; }
     }
 }

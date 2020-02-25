@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealtorsOffice.Models.Communication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,8 +11,9 @@ namespace RealtorsOffice.Entity.EntityModel
     [Table("Houses")]
     public class HouseModel
     {
-        [Key]
+        [Key, ForeignKey("RealtorHouseOf")]
         public int Id { get; set; }
+
         [Required]
         public int NumberRooms { get; set; }
         [Required]
@@ -31,5 +33,6 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public int Floors { get; set; }
 
+        public virtual RealtorHouse RealtorHouseOf { get; set; }
     }
 }

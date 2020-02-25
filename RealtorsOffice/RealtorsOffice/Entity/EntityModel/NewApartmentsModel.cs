@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealtorsOffice.Models.Communication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,14 +8,13 @@ using System.Web;
 
 namespace RealtorsOffice.Entity.EntityModel
 {
+    [Table("tblNewApartmentsModel")]
     public class NewApartmentsModel
 
     {
-        [Key]
+        [Key, ForeignKey("RealtorNewApartmentOf")]
         public int Id { get; set; }
-        [ForeignKey("NewBuildingOf")]
-        public int IdBuilding { get; set; }
-        public virtual NewBuildingModel NewBuildingOf { get; set; }
+
         [Required]
         public int CountRooms { get; set; }
         [Required]
@@ -27,5 +27,11 @@ namespace RealtorsOffice.Entity.EntityModel
         public string Picture { get; set; }
         [Required]
         public int Floor { get; set; }
+
+        [ForeignKey("NewBuildingOf")]
+        public int IdBuilding { get; set; }
+        public virtual NewBuildingModel NewBuildingOf { get; set; }
+
+        public virtual RealtorNewApartment RealtorNewApartmentOf { get; set; }
     }
 }

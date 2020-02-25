@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealtorsOffice.Models.Communication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +11,7 @@ namespace RealtorsOffice.Entity.EntityModel
     [Table("NewBuildings")]
     public class NewBuildingModel
     {
-        [Key]
+        [Key, ForeignKey("RealtorNewBuildingOf")]
         public int Id { get; set; }
         [Required]
         public string StreetName { get; set; }
@@ -28,5 +29,6 @@ namespace RealtorsOffice.Entity.EntityModel
         public DataType DateOfConstructed { get; set; }
 
         public virtual ICollection<ApartmentsModel> Apartments { get; set; }
+        public virtual RealtorNewBuilding RealtorNewBuildingOf { get; set; }
     }
 }
