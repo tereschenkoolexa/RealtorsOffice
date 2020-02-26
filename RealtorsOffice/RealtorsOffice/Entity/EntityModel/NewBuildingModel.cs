@@ -29,6 +29,6 @@ namespace RealtorsOffice.Entity.EntityModel
         public DataType DateOfConstructed { get; set; }
 
         public virtual ICollection<ApartmentsModel> Apartments { get; set; }
-        public virtual RealtorNewBuilding RealtorNewBuildingOf { get; set; }
+        public virtual ICollection<RealtorNewBuilding> RealtorNewBuildingOf { get; set; }
     }
 }

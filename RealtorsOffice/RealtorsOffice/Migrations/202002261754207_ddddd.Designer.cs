@@ -7,13 +7,13 @@ namespace RealtorsOffice.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddRealtor : IMigrationMetadata
+    public sealed partial class ddddd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRealtor));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ddddd));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002191812344_Add Realtor"; }
+            get { return "202002261754207_ddddd"; }
         }
         
         string IMigrationMetadata.Source

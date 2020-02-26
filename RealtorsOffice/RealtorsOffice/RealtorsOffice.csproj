@@ -182,21 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002191703267_Add User and Admin.cs" />
-    <Compile Include="Migrations\202002191703267_Add User and Admin.Designer.cs">
-      <DependentUpon>202002191703267_Add User and Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002191812344_Add Realtor.cs" />
-    <Compile Include="Migrations\202002191812344_Add Realtor.Designer.cs">
-      <DependentUpon>202002191812344_Add Realtor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002251644403_Add tbl Apartaments, Houses, New Buildings and Realtor.cs" />
-    <Compile Include="Migrations\202002251644403_Add tbl Apartaments, Houses, New Buildings and Realtor.Designer.cs">
-      <DependentUpon>202002251644403_Add tbl Apartaments, Houses, New Buildings and Realtor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002251655394_add houses.cs" />
-    <Compile Include="Migrations\202002251655394_add houses.Designer.cs">
-      <DependentUpon>202002251655394_add houses.cs</DependentUpon>
+    <Compile Include="Migrations\202002261754207_ddddd.cs" />
+    <Compile Include="Migrations\202002261754207_ddddd.Designer.cs">
+      <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -295,17 +283,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002191703267_Add User and Admin.resx">
-      <DependentUpon>202002191703267_Add User and Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002191812344_Add Realtor.resx">
-      <DependentUpon>202002191812344_Add Realtor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002251644403_Add tbl Apartaments, Houses, New Buildings and Realtor.resx">
-      <DependentUpon>202002251644403_Add tbl Apartaments, Houses, New Buildings and Realtor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002251655394_add houses.resx">
-      <DependentUpon>202002251655394_add houses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002261754207_ddddd.resx">
+      <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

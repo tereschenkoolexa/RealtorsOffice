@@ -13,11 +13,11 @@ namespace RealtorsOffice.Models
     {
 
         [Key, ForeignKey("RealtorOf"), Column(Order = 0)]
-        public string IdRealtor { get; set; }
+        public string RealtorId { get; set; }
         public virtual MoreInfoRealtor RealtorOf { get; set; }
 
         [Key, ForeignKey("ApartmentOf"), Column(Order = 1)]
-        public int IdApartment { get; set; }
+        public int ApartmentlId { get; set; }
         public virtual ApartmentsModel ApartmentOf { get; set; }
 
 

@@ -32,6 +32,6 @@ namespace RealtorsOffice.Entity.EntityModel
         public int IdBuilding { get; set; }
         public virtual NewBuildingModel NewBuildingOf { get; set; }
 
-        public virtual RealtorNewApartment RealtorNewApartmentOf { get; set; }
+        public virtual ICollection<RealtorNewApartment> RealtorNewApartmentOf { get; set; }
     }
 }

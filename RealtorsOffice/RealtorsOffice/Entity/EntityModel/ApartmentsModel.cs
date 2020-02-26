@@ -36,6 +36,6 @@ namespace RealtorsOffice.Entity.EntityModel
         public string StreetName { get; set; }
 
 
-        public virtual RealtorApartment RealtorApartmentOf { get; set; }
+        public virtual ICollection<RealtorApartment> RealtorApartmentOf { get; set; }
     }
 }
