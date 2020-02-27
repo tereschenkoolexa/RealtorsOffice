@@ -174,7 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Entity\EFContext.cs" />
+    <Compile Include="Controllers\RealEstateControllers\ApartmentsController.cs" />
     <Compile Include="Entity\EntityModel\ApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\NewApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\HouseModel.cs" />
@@ -268,6 +268,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Realtor\Models\" />
+    <Folder Include="Views\Apartments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

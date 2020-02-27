@@ -51,7 +51,7 @@ namespace RealtorsOffice.Models
 
         [Required(ErrorMessage = "Please, enter Picture")]
         [Display(Name = "Picture: ")]
-        public HttpPostedFileBase Picture { get; set; }
+        public string Picture { get; set; }
 
 
         [Required(ErrorMessage = "Please, enter Picture")]
@@ -61,13 +61,14 @@ namespace RealtorsOffice.Models
 
     public class ApartmentsEditViewModel
     {
+        public int Id { get; set; }
         public int NumberRooms { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
         public bool Parking { get; set; }
         public bool Warming { get; set; }
         public bool Repair { get; set; }
-        public HttpPostedFileBase Picture { get; set; }
+        public string Picture { get; set; }
         public string StreetName { get; set; }
     }
 
