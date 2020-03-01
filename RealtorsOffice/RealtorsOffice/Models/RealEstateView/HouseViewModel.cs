@@ -10,6 +10,7 @@ namespace RealtorsOffice.Models.RealEstateView
     {
 
         public int Id { get; set; }
+        public int CountRooms { get; set; }
         public int NumberRooms { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
@@ -25,30 +26,96 @@ namespace RealtorsOffice.Models.RealEstateView
 
     public class HouseCreateViewModel
     {
-
+        [Required(ErrorMessage = "Please, enter Count Rooms")]
+        [Display(Name = "Count Rooms: ")]
+        public int CountRooms { get; set; }
         [Required(ErrorMessage = "Please, enter Number Rooms")]
         [Display(Name = "Number Rooms: ")]
         public int NumberRooms { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+
+        [Required(ErrorMessage = "Please, enter Price")]
+        [Display(Name = "Price: ")]
         public decimal Price { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+
+        [Required(ErrorMessage = "Please, enter Square")]
+        [Display(Name = "Square: ")]
         public double Square { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+
+        [Required(ErrorMessage = "Please, enter Parking")]
+        [Display(Name = "Parking: ")]
         public bool Parking { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+
+        [Required(ErrorMessage = "Please, enter Warming")]
+        [Display(Name = "Warming: ")]
         public bool Warming { get; set; }
+
         [Required(ErrorMessage = "Please, enter Number Rooms")]
         [Display(Name = "Number Rooms: ")]
         public bool Repair { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Picture")]
+        [Display(Name = "Picture: ")]
         public string Picture { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Street Name")]
+        [Display(Name = "Street Name: ")]
         public string StreetName { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Floors")]
+        [Display(Name = "Floors: ")]
         public int Floors { get; set; }
+
+        [Required(ErrorMessage = "Please, enter City")]
+        [Display(Name = "City: ")]
         public string City { get; set; }
 
+    }
+
+    public class HouseEditViewModel
+    {
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Please, enter Count Rooms")]
+        [Display(Name = "Count Rooms: ")]
+        public int CountRooms { get; set; }
+        [Required(ErrorMessage = "Please, enter Number Rooms")]
+        [Display(Name = "Number Rooms: ")]
+        public int NumberRooms { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Price")]
+        [Display(Name = "Price: ")]
+        public decimal Price { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Square")]
+        [Display(Name = "Square: ")]
+        public double Square { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Parking")]
+        [Display(Name = "Parking: ")]
+        public bool Parking { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Warming")]
+        [Display(Name = "Warming: ")]
+        public bool Warming { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Number Rooms")]
+        [Display(Name = "Number Rooms: ")]
+        public bool Repair { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Picture")]
+        [Display(Name = "Picture: ")]
+        public string Picture { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Street Name")]
+        [Display(Name = "Street Name: ")]
+        public string StreetName { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Floors")]
+        [Display(Name = "Floors: ")]
+        public int Floors { get; set; }
+
+        [Required(ErrorMessage = "Please, enter City")]
+        [Display(Name = "City: ")]
+        public string City { get; set; }
     }
 
 }

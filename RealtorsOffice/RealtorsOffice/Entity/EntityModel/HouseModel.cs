@@ -15,6 +15,8 @@ namespace RealtorsOffice.Entity.EntityModel
         public int Id { get; set; }
 
         [Required]
+        public int CountRooms { get; set; }
+        [Required]
         public int NumberRooms { get; set; }
         [Required]
         public decimal Price { get; set; }

@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RealEstateControllers\ApartmentsController.cs" />
+    <Compile Include="Controllers\RealEstateControllers\HouseController.cs" />
     <Compile Include="Entity\EntityModel\ApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\NewApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\HouseModel.cs" />
@@ -189,6 +190,10 @@
     <Compile Include="Migrations\202003011135520_add city.cs" />
     <Compile Include="Migrations\202003011135520_add city.Designer.cs">
       <DependentUpon>202003011135520_add city.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011250429_Add in tblHouse column CountRooms.cs" />
+    <Compile Include="Migrations\202003011250429_Add in tblHouse column CountRooms.Designer.cs">
+      <DependentUpon>202003011250429_Add in tblHouse column CountRooms.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -271,6 +276,7 @@
     <Content Include="Views\Apartments\Index.cshtml" />
     <Content Include="Views\Apartments\Create.cshtml" />
     <Content Include="Views\Apartments\Edit.cshtml" />
+    <Content Include="Views\House\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003011135520_add city.resx">
       <DependentUpon>202003011135520_add city.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011250429_Add in tblHouse column CountRooms.resx">
+      <DependentUpon>202003011250429_Add in tblHouse column CountRooms.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
