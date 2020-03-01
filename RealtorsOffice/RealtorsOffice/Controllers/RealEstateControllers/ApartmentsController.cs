@@ -13,10 +13,9 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
         ApplicationDbContext _context;
 
-
-        public ApartmentsController(ApplicationDbContext context)
+        public ApartmentsController()
         {
-            _context = context;
+            _context = new ApplicationDbContext();
         }
 
         public ActionResult Index()
@@ -24,6 +23,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
             List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
             {
+                Id = t.Id,
                 NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,
@@ -31,7 +31,10 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Repair = t.Repair,
                 Square = t.Square,
                 StreetName = t.StreetName,
-                Warming = t.Warming
+                Warming = t.Warming,
+                City = t.City,
+                Floor = t.Floor,
+                CountRooms = t.CountRooms
             }).ToList();
 
             return View(listRed);
@@ -59,8 +62,10 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                     Repair = model.Repair,
                     Square = model.Square,
                     StreetName = model.StreetName,
-                    Warming = model.Warming
-
+                    Warming = model.Warming,
+                    City = model.City,
+                    Floor = model.Floor,
+                    CountRooms = model.CountRooms
                 });
                 _context.SaveChanges();
 
@@ -82,6 +87,9 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Square = temp.Square,
                 StreetName = temp.StreetName,
                 Warming = temp.Warming,
+                City = temp.City,
+                Floor = temp.Floor,
+                CountRooms = temp.CountRooms,
                 Id = temp.Id
             };
 
@@ -103,7 +111,9 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 temp.Square = model.Square;
                 temp.StreetName = model.StreetName;
                 temp.Warming = model.Warming;
-              
+                temp.City = model.City;
+                temp.Floor = model.Floor;
+                temp.CountRooms = model.CountRooms;
                 _context.SaveChanges();
 
                 return RedirectToAction("Index", "Apartments");

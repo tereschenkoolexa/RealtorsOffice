@@ -27,6 +27,8 @@ namespace RealtorsOffice.Entity.EntityModel
         public bool ConstructionStatus { get; set; }
         [Required]
         public DataType DateOfConstructed { get; set; }
+        [Required]
+        public string City { get; set; }
 
         public virtual ICollection<ApartmentsModel> Apartments { get; set; }
         public virtual ICollection<RealtorNewBuilding> RealtorNewBuildingOf { get; set; }

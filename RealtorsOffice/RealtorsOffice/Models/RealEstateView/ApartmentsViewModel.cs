@@ -10,6 +10,9 @@ namespace RealtorsOffice.Models
 {
     public class ApartmentsViewModel
     {
+
+        public int Id { get; set; }
+        public int CountRooms { get; set; }
         public int NumberRooms { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
@@ -17,11 +20,18 @@ namespace RealtorsOffice.Models
         public bool Warming { get; set; }
         public bool Repair { get; set; }
         public string Picture { get; set; }
+        public int Floor { get; set; }
         public string StreetName { get; set; }
+        public string City { get; set; }
+
     }
 
     public class ApartmentsCreateViewModel
     {
+
+        [Required(ErrorMessage = "Please, enter Count Rooms")]
+        [Display(Name = "Count Rooms: ")]
+        public int CountRooms { get; set; }
 
         [Required(ErrorMessage = "Please, enter Number Rooms")]
         [Display(Name = "Number Rooms: ")]
@@ -53,15 +63,23 @@ namespace RealtorsOffice.Models
         [Display(Name = "Picture: ")]
         public string Picture { get; set; }
 
+        [Required(ErrorMessage = "Please, enter Floor")]
+        [Display(Name = "Floor: ")]
+        public int Floor { get; set; }
 
-        [Required(ErrorMessage = "Please, enter Picture")]
-        [Display(Name = "Picture: ")]
+        [Required(ErrorMessage = "Please, enter Street Name")]
+        [Display(Name = "Street Name: ")]
         public string StreetName { get; set; }
+
+        [Required(ErrorMessage = "Please, enter City")]
+        [Display(Name = "City: ")]
+        public string City { get; set; }
     }
 
     public class ApartmentsEditViewModel
     {
         public int Id { get; set; }
+        public int CountRooms { get; set; }
         public int NumberRooms { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
@@ -69,7 +87,9 @@ namespace RealtorsOffice.Models
         public bool Warming { get; set; }
         public bool Repair { get; set; }
         public string Picture { get; set; }
+        public int Floor { get; set; }
         public string StreetName { get; set; }
+        public string City { get; set; }
     }
 
 }

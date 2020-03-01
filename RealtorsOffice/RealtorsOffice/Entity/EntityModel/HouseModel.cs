@@ -32,7 +32,8 @@ namespace RealtorsOffice.Entity.EntityModel
         public string StreetName { get; set; }
         [Required]
         public int Floors { get; set; }
-
+        [Required]
+        public string City { get; set; }
         public virtual ICollection<RealtorHouse> RealtorHouses { get; set; }
     }
 }

@@ -186,9 +186,13 @@
     <Compile Include="Migrations\202002261754207_ddddd.Designer.cs">
       <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003011135520_add city.cs" />
+    <Compile Include="Migrations\202003011135520_add city.Designer.cs">
+      <DependentUpon>202003011135520_add city.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApartmentsViewModel.cs" />
+    <Compile Include="Models\RealEstateView\ApartmentsViewModel.cs" />
     <Compile Include="Models\Communication\RealtorHouse.cs" />
     <Compile Include="Models\Communication\RealtorNewApartment.cs" />
     <Compile Include="Models\Communication\RealtorNewBuilding.cs" />
@@ -196,6 +200,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MoreInfoRealtor.cs" />
     <Compile Include="Models\Communication\RealtorApartment.cs" />
+    <Compile Include="Models\RealEstateView\HouseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -263,12 +268,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Apartments\Index.cshtml" />
+    <Content Include="Views\Apartments\Create.cshtml" />
+    <Content Include="Views\Apartments\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Realtor\Models\" />
-    <Folder Include="Views\Apartments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -286,6 +293,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002261754207_ddddd.resx">
       <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011135520_add city.resx">
+      <DependentUpon>202003011135520_add city.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
