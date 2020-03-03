@@ -42,12 +42,14 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Realtor")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Realtor")]
         public ActionResult Create(HouseCreateViewModel model)
         {
 
@@ -69,12 +71,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 });
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Apartments");
+                return RedirectToAction("Index", "House");
             }
             return View(model);
         }
 
         [HttpGet]
+        [Authorize(Roles = "Realtor")]
         public ActionResult Edit(int id)
         {
             var temp = _context.Houses.FirstOrDefault(t => t.Id == id);
@@ -98,6 +101,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Realtor")]
         public ActionResult Edit(HouseEditViewModel model)
         {
             if (ModelState.IsValid)
@@ -117,17 +121,17 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 temp.CountRooms = model.CountRooms;
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Apartments");
+                return RedirectToAction("Index", "House");
             }
             return View(model);
         }
 
-
+        [Authorize(Roles = "Realtor")]
         public ActionResult Delete(int id)
         {
             _context.Houses.Remove(_context.Houses.FirstOrDefault(t => t.Id == id));
             _context.SaveChanges();
-            return RedirectToAction("Index", "Apartments");
+            return RedirectToAction("Index", "House");
         }
 
     }

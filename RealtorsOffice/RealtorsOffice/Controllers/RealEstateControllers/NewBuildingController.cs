@@ -1,5 +1,6 @@
 ﻿using RealtorsOffice.Entity.EntityModel;
 using RealtorsOffice.Models;
+using RealtorsOffice.Models.RealEstateView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,40 +9,33 @@ using System.Web.Mvc;
 
 namespace RealtorsOffice.Controllers.RealEstateControllers
 {
-
-    public class ApartmentsController : Controller
+    public class NewBuildingController : Controller
     {
+
 
         ApplicationDbContext _context;
 
-        public ApartmentsController()
+        public NewBuildingController()
         {
             _context = new ApplicationDbContext();
         }
 
-
-
         public ActionResult Index()
         {
-
-            List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
+            List<NewBuildingViewModel> listRed = _context.NewBuildings.Select(t => new NewBuildingViewModel
             {
                 Id = t.Id,
-                NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,
-                Price = t.Price,
-                Repair = t.Repair,
-                Square = t.Square,
                 StreetName = t.StreetName,
                 Warming = t.Warming,
                 City = t.City,
-                Floor = t.Floor,
-                CountRooms = t.CountRooms
+                ConstructionStatus = t.ConstructionStatus,
+                DateOfConstructed = t.DateOfConstructed,
+                Floors = t.Floors
             }).ToList();
 
             return View(listRed);
-
         }
 
         [HttpGet]
@@ -53,28 +47,25 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
         [HttpPost]
         [Authorize(Roles = "Realtor")]
-        public ActionResult Create(ApartmentsCreateViewModel model)
+        public ActionResult Create(NewBuildingCreateViewModel model)
         {
 
             if (ModelState.IsValid)
             {
-                _context.Apartments.Add(new ApartmentsModel
+                _context.NewBuildings.Add(new NewBuildingModel
                 {
-                    NumberRooms = model.NumberRooms,
                     Parking = model.Parking,
                     Picture = model.Picture,
-                    Price = model.Price,
-                    Repair = model.Repair,
-                    Square = model.Square,
                     StreetName = model.StreetName,
                     Warming = model.Warming,
                     City = model.City,
-                    Floor = model.Floor,
-                    CountRooms = model.CountRooms
+                    ConstructionStatus = model.ConstructionStatus,
+                    DateOfConstructed = model.DateOfConstructed,
+                    Floors = model.Floors
                 });
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Apartments");
+                return RedirectToAction("Index", "NewBuilding");
             }
             return View(model);
         }
@@ -83,21 +74,17 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Edit(int id)
         {
-            var temp = _context.Apartments.FirstOrDefault(t => t.Id == id);
-            ApartmentsEditViewModel model = new ApartmentsEditViewModel()
+            var temp = _context.NewBuildings.FirstOrDefault(t => t.Id == id);
+            NewBuildingEditViewModel model = new NewBuildingEditViewModel()
             {
-                NumberRooms = temp.NumberRooms,
                 Parking = temp.Parking,
                 Picture = temp.Picture,
-                Price = temp.Price,
-                Repair = temp.Repair,
-                Square = temp.Square,
                 StreetName = temp.StreetName,
                 Warming = temp.Warming,
                 City = temp.City,
-                Floor = temp.Floor,
-                CountRooms = temp.CountRooms,
-                Id = temp.Id
+                ConstructionStatus = temp.ConstructionStatus,
+                DateOfConstructed = temp.DateOfConstructed,
+                Floors = temp.Floors
             };
 
             return View(model);
@@ -105,26 +92,23 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
         [HttpPost]
         [Authorize(Roles = "Realtor")]
-        public ActionResult Edit(ApartmentsEditViewModel model)
+        public ActionResult Edit(NewBuildingEditViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var temp = _context.Apartments.FirstOrDefault(t => t.Id == model.Id);
+                var temp = _context.NewBuildings.FirstOrDefault(t => t.Id == model.Id);
 
-                temp.NumberRooms = model.NumberRooms;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
-                temp.Price = model.Price;
-                temp.Repair = model.Repair;
-                temp.Square = model.Square;
                 temp.StreetName = model.StreetName;
                 temp.Warming = model.Warming;
                 temp.City = model.City;
-                temp.Floor = model.Floor;
-                temp.CountRooms = model.CountRooms;
+                temp.ConstructionStatus = model.ConstructionStatus;
+                temp.DateOfConstructed = model.DateOfConstructed;
+                temp.Floors = model.Floors;
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Apartments");
+                return RedirectToAction("Index", "NewBuilding");
             }
             return View(model);
         }
@@ -132,9 +116,10 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Delete(int id)
         {
-            _context.Apartments.Remove(_context.Apartments.FirstOrDefault(t => t.Id == id));
+            _context.NewBuildings.Remove(_context.NewBuildings.FirstOrDefault(t => t.Id == id));
             _context.SaveChanges();
-            return RedirectToAction("Index", "Apartments");
+            return RedirectToAction("Index", "NewBuilding");
         }
+
     }
 }

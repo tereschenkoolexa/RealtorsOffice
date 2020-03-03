@@ -158,6 +158,8 @@ namespace RealtorsOffice.Controllers
 
                 if (result.Succeeded)
                 {
+
+                    UserManager.AddToRole(UserManager.FindByEmail(model.Email).Id, "Realtor");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
