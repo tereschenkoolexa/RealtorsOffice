@@ -13,6 +13,15 @@ namespace RealtorsOffice.Controllers
             return View();
         }
 
+        //public ActionResult City(int cityId)
+        //{
+
+
+        //    return View();
+        //}
+
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

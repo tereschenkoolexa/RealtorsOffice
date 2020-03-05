@@ -11,6 +11,18 @@
     padding-bottom: 8px;
 }
 
+.jumbotron-margin {
+    margin-bottom: 20px!important;
+    margin-top: 20px!important;
+}
+
+.product-list {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
