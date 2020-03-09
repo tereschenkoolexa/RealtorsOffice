@@ -11,6 +11,8 @@ namespace RealtorsOffice.Entity.EntityModel
     [Table("NewBuildings")]
     public class NewBuildingModel
     {
+        [Required]
+        public string Name { get; set; }
         [Key, ForeignKey("RealtorNewBuildingOf")]
         public int Id { get; set; }
         [Required]

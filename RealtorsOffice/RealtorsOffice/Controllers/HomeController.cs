@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealtorsOffice.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,35 @@ namespace RealtorsOffice.Controllers
         //}
 
 
+        //ApplicationDbContext _context;
+
+        //public HomeController()
+        //{
+        //    _context = new ApplicationDbContext();
+        //}
+
+        //public ActionResult Index()
+        //{
+
+        //    List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
+        //    {
+        //        Id = t.Id,
+        //        NumberRooms = t.NumberRooms,
+        //        Parking = t.Parking,
+        //        Picture = t.Picture,
+        //        Price = t.Price,
+        //        Repair = t.Repair,
+        //        Square = t.Square,
+        //        StreetName = t.StreetName,
+        //        Warming = t.Warming,
+        //        City = t.City,
+        //        Floor = t.Floor,
+        //        CountRooms = t.CountRooms
+        //    }).ToList();
+
+        //    return View(listRed);
+
+        //}
 
         public ActionResult About()
         {

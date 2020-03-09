@@ -28,6 +28,10 @@
     padding-right: 15px;
 }
 
+.button-index {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

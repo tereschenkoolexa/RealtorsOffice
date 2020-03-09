@@ -21,6 +21,29 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
 
 
+        public ActionResult MoreInfo()
+        {
+
+            List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
+            {
+                Id = t.Id,
+                NumberRooms = t.NumberRooms,
+                Parking = t.Parking,
+                Picture = t.Picture,
+                Price = t.Price,
+                Repair = t.Repair,
+                Square = t.Square,
+                StreetName = t.StreetName,
+                Warming = t.Warming,
+                City = t.City,
+                Floor = t.Floor,
+                CountRooms = t.CountRooms
+            }).ToList();
+
+            return View(listRed);
+
+        }
+
         public ActionResult Index()
         {
 
@@ -60,6 +83,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             {
                 _context.Apartments.Add(new ApartmentsModel
                 {
+                    Name= model.Name,
                     NumberRooms = model.NumberRooms,
                     Parking = model.Parking,
                     Picture = model.Picture,
@@ -86,6 +110,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             var temp = _context.Apartments.FirstOrDefault(t => t.Id == id);
             ApartmentsEditViewModel model = new ApartmentsEditViewModel()
             {
+                Name = temp.Name,
                 NumberRooms = temp.NumberRooms,
                 Parking = temp.Parking,
                 Picture = temp.Picture,
@@ -111,6 +136,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             {
                 var temp = _context.Apartments.FirstOrDefault(t => t.Id == model.Id);
 
+                temp.Name = model.Name;
                 temp.NumberRooms = model.NumberRooms;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
