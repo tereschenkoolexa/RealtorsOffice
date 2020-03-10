@@ -3,6 +3,29 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Hi, Realtor</h2>
-
-
+    <div class="bg-dark" style="margin-top:20px;margin-bottom:20px;">
+        <div class="container  text-white">
+            <h2 сlass="container" style="padding-top:20px;padding-bottom:20px;">Добрий день, ріелтор!</h2>
+        </div>
+    </div>
+<div class="bg-dark" style="margin-top:20px">
+    <div class="container">
+        <div class="text-white">
+            <h2 style="padding-top:20px;padding-bottom:20px;">Ваша нерухомість:</h2>
+        </div>
+            <div id="ListRealEstate" class="row ">
+            <div class="col-md-4">
+                <img src="~/Image/homre-index-apartment.png" height="550" width="350" style="padding-top:15px" />
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("List", "Apartments", new { area = "" })">Квартири</a>
+            </div>
+            <div class="col-md-4">
+                <img src="~/Image/home-index-newBuilding.png" height="550" width="350" style="padding-top:15px" />
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("List", "NewBuilding", new { area = "" })">Нові квартири</a>
+            </div>
+            <div class="col-md-4">
+                <img src="~/Image/home-index-hous.png" height="550" width="350" style="padding-top:15px" />
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("List", "House", new { area = "" })">Котеджі</a>
+            </div>
+        </div>
+    </div>
+</div>

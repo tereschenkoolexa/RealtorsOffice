@@ -3,27 +3,33 @@
 
 <div class="bg-dark text-white" style="margin-top:20px">
     <div class="container">
-        @foreach (var item in Model)
-            {
-                <hr />
 
-                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
-                <img src="@Html.DisplayFor(modelItem => item.Picture)" width="1000" height="500"/>
-                    
-                <h5>Description</h5>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p class="card-text">Count Rooms: </p>
 
-                <p class="card-text">Count Rooms: @Html.DisplayFor(modelItem => item.CountRooms)</p>
-                <p class="card-text">Number Rooms: @Html.DisplayFor(modelItem => item.NumberRooms)</p>
-                <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
-                <p class="card-text">Parking: @Html.DisplayFor(modelItem => item.Parking)</p>
-                <p class="card-text">Repair: @Html.DisplayFor(modelItem => item.Repair)</p>
-                <p class="card-text">Floor: @Html.DisplayFor(modelItem => item.Floor)</p>
-                <p class="card-text">Street Name: @Html.DisplayFor(modelItem => item.StreetName)</p>
-                    
-                <hr />
+            <hr />
 
-            }
+            @*<h4>@Html.LabelFor(model => model.Name)</h4>
+            <img src="@Html.LabelFor(model => model.Picture)" width="1000" height="500" />
 
-          </div>
+            <h5>Description</h5>
+
+
+            <p class="card-text">Count Rooms: @Html.LabelFor(model => model.CountRooms)</p>
+            <p class="card-text">Number Rooms: @Html.LabelFor(model => model.NumberRooms)</p>
+            <p class="card-text">Square: @Html.LabelFor(model => model.Square)</p>
+            <p class="card-text">Parking: @Html.LabelFor(model => model.Parking)</p>
+            <p class="card-text">Repair: @Html.LabelFor(model => model.Repair)</p>
+            <p class="card-text">Floor: @Html.LabelFor(model => model.Floor)</p>
+            <p class="card-text">Street Name: @Html.LabelFor(model => model.StreetName)</p>*@
+
+            <hr />
+
+        }
+
     </div>
-    
+</div>
+

@@ -22,26 +22,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
 
 
-        public ActionResult MoreInfo()
+        public ActionResult MoreInfo(int id)
         {
 
-            List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
-            {
-                Id = t.Id,
-                NumberRooms = t.NumberRooms,
-                Parking = t.Parking,
-                Picture = t.Picture,
-                Price = t.Price,
-                Repair = t.Repair,
-                Square = t.Square,
-                StreetName = t.StreetName,
-                Warming = t.Warming,
-                City = t.City,
-                Floor = t.Floor,
-                CountRooms = t.CountRooms
-            }).ToList();
+            ApartmentsModel Apar = _context.Apartments.FirstOrDefault(t => t.Id == id);
 
-            return View(listRed);
+
+            return View(Apar);
 
         }
 
@@ -98,11 +85,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         {
             if (ModelState.IsValid)
             {
-                _context.RealtorApartments.Add(new RealtorApartment
-                {
-                    ApartmentlId = model.Id,
-                    RealtorId = User.Identity.GetUserId()
-                });
                 _context.Apartments.Add(new ApartmentsModel
                 {
                     Name= model.Name,
@@ -119,8 +101,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                     CountRooms = model.CountRooms
                 });
                 _context.SaveChanges();
-
-                return RedirectToAction("Index", "Apartments");
+                _context.RealtorApartments.Add(new RealtorApartment
+                {
+                    ApartmentlId = _context.Apartments.Last().Id,
+                    RealtorId = User.Identity.GetUserId()
+                });
+                _context.SaveChanges();
+                return RedirectToAction("List", "Apartments");
             }
             return View(model);
         }

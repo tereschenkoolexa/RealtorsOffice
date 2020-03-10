@@ -384,6 +384,7 @@
     <Content Include="Views\House\MoreInfo.cshtml" />
     <Content Include="Views\House\Edit.cshtml" />
     <Content Include="Views\House\Create.cshtml" />
+    <Content Include="Views\Apartments\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

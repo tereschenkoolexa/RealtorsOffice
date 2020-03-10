@@ -1,0 +1,99 @@
+﻿@model IEnumerable<RealtorsOffice.Models.ApartmentsViewModel>
+
+<a href="@Url.Action("Create","Apartments")"class = " btn btn-dark button-index btn-block ">Добавити нову квартиру</a>
+<table class="table table-dark table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountRooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberRooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Square)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Warming)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Repair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Floor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountRooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberRooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Square)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Warming)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Repair)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Floor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td class="text-white">
+            <ul class="navbar-nav">
+                <li>
+                    <a href="@Url.Action("Edit", "Edit", new { id=item.Id})" class="text-white">Редагувати</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MoreInfo", "Apartments", new { id=item.Id})" class="text-white">Детальніше</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Delete", "Delete", new { id=item.Id})" class="text-white">Видалити</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+}
+
+</table>
