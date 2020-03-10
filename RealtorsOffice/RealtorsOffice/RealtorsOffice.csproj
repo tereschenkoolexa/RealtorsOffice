@@ -231,6 +231,9 @@
     <Content Include="Areas\Realtor\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Realtor\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Realtor\Views\Realtor\Index.cshtml" />
+    <Content Include="Image\home-index-hous.png" />
+    <Content Include="Image\home-index-newBuilding.png" />
+    <Content Include="Image\homre-index-apartment.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

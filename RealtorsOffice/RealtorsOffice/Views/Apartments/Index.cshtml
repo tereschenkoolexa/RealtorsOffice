@@ -103,7 +103,7 @@
                         <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Square)</p>
-                        <a href="#" class="btn  btn-dark btn-block">See Apartments</a>
+                        <a href="#" class="">@Html.ActionLink("See Apartments", "MoreInfo", new { id = item.Id, @class ="btn  btn-dark btn-block"})</a>
 
                     </div>
                 </div>

@@ -9,16 +9,19 @@
 </div>
 <div class="bg-dark">
     <div class="container">
-        <div id="ListRealEstate" class="row  text-white">
+        <div id="ListRealEstate" class="row">
 
             <div class="col-md-4">
-                <button type="button" class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Квартири", "Index", "Apartments",  new { @class = "loyout-content" })</button>
+                <img src="~/Image/homre-index-apartment.png" height="550" width="350" style="padding-top:15px" />
+                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Квартири", "Index", "Apartments", new { @class = " btn btn-light button-index btn-block" })</a>
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">Нові квартири</button>
+                <img src="~/Image/home-index-newBuilding.png" height="550" width="350" style="padding-top:15px"/>
+                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Нові квартири", "Index", "NewBuilding", new { @class = " btn btn-light button-index btn-block" })</a>
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">Котеджі</button>
+                <img src="~/Image/home-index-hous.png" height="550" width="350" style="padding-top:15px"/>
+                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Котеджі", "Index", "House",  new { @class = " btn btn-light button-index btn-block"})</a>
             </div>
         </div>
     </div>
