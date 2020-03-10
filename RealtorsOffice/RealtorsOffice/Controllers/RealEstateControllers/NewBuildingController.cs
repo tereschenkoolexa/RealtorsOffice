@@ -56,8 +56,8 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             {
                 _context.RealtorNewBuildings.Add(new RealtorNewBuilding
                 {
-                    IdNewBuilding = model.Id,
-                    IdRealtor = User.Identity.GetUserId()
+                    NewBuildingId = model.Id,
+                    RealtorId = User.Identity.GetUserId()
                 });
                 _context.NewBuildings.Add(new NewBuildingModel
                 {

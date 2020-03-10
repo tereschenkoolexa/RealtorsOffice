@@ -3,7 +3,7 @@ namespace RealtorsOffice.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ddddd : DbMigration
+    public partial class Newdatabase : DbMigration
     {
         public override void Up()
         {
@@ -12,8 +12,8 @@ namespace RealtorsOffice.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
                         CountRooms = c.Int(nullable: false),
-                        NumberRooms = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Square = c.Double(nullable: false),
                         Parking = c.Boolean(nullable: false),
@@ -21,7 +21,9 @@ namespace RealtorsOffice.Migrations
                         Repair = c.Boolean(nullable: false),
                         Picture = c.String(),
                         Floor = c.Int(nullable: false),
+                        DistrictName = c.String(nullable: false),
                         StreetName = c.String(nullable: false),
+                        City = c.String(nullable: false),
                         NewBuildingModel_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -46,6 +48,7 @@ namespace RealtorsOffice.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        PhoneNumber = c.String(nullable: false),
                         NameCompany = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -56,29 +59,32 @@ namespace RealtorsOffice.Migrations
                 "dbo.tblRealtorHouse",
                 c => new
                     {
-                        IdRealtor = c.String(nullable: false, maxLength: 128),
-                        IdHouse = c.Int(nullable: false),
+                        RealtorId = c.String(nullable: false, maxLength: 128),
+                        HouseId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.IdRealtor, t.IdHouse })
-                .ForeignKey("dbo.Houses", t => t.IdHouse, cascadeDelete: true)
-                .ForeignKey("dbo.MoreInfoRealtors", t => t.IdRealtor, cascadeDelete: true)
-                .Index(t => t.IdRealtor)
-                .Index(t => t.IdHouse);
+                .PrimaryKey(t => new { t.RealtorId, t.HouseId })
+                .ForeignKey("dbo.Houses", t => t.HouseId, cascadeDelete: true)
+                .ForeignKey("dbo.MoreInfoRealtors", t => t.RealtorId, cascadeDelete: true)
+                .Index(t => t.RealtorId)
+                .Index(t => t.HouseId);
             
             CreateTable(
                 "dbo.Houses",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NumberRooms = c.Int(nullable: false),
+                        Name = c.String(nullable: false),
+                        CountRooms = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Square = c.Double(nullable: false),
                         Parking = c.Boolean(nullable: false),
                         Warming = c.Boolean(nullable: false),
                         Repair = c.Boolean(nullable: false),
                         Picture = c.String(nullable: false),
+                        DistrictName = c.String(nullable: false),
                         StreetName = c.String(nullable: false),
                         Floors = c.Int(nullable: false),
+                        City = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -86,22 +92,22 @@ namespace RealtorsOffice.Migrations
                 "dbo.tblRealtorNewApartment",
                 c => new
                     {
-                        IdRealtor = c.String(nullable: false, maxLength: 128),
-                        IdHouse = c.Int(nullable: false),
+                        RealtorId = c.String(nullable: false, maxLength: 128),
+                        NewApartmentId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.IdRealtor, t.IdHouse })
-                .ForeignKey("dbo.tblNewApartmentsModel", t => t.IdHouse, cascadeDelete: true)
-                .ForeignKey("dbo.MoreInfoRealtors", t => t.IdRealtor, cascadeDelete: true)
-                .Index(t => t.IdRealtor)
-                .Index(t => t.IdHouse);
+                .PrimaryKey(t => new { t.RealtorId, t.NewApartmentId })
+                .ForeignKey("dbo.tblNewApartmentsModel", t => t.NewApartmentId, cascadeDelete: true)
+                .ForeignKey("dbo.MoreInfoRealtors", t => t.RealtorId, cascadeDelete: true)
+                .Index(t => t.RealtorId)
+                .Index(t => t.NewApartmentId);
             
             CreateTable(
                 "dbo.tblNewApartmentsModel",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
                         CountRooms = c.Int(nullable: false),
-                        NumberRooms = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Square = c.Double(nullable: false),
                         Picture = c.String(nullable: false),
@@ -117,13 +123,16 @@ namespace RealtorsOffice.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
                         StreetName = c.String(nullable: false),
+                        DistrictName = c.String(nullable: false),
                         Picture = c.String(nullable: false),
                         Floors = c.Int(nullable: false),
                         Parking = c.Boolean(nullable: false),
                         Warming = c.Boolean(nullable: false),
                         ConstructionStatus = c.Boolean(nullable: false),
                         DateOfConstructed = c.Int(nullable: false),
+                        City = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -131,14 +140,14 @@ namespace RealtorsOffice.Migrations
                 "dbo.tblRealtorNewBuilding",
                 c => new
                     {
-                        IdRealtor = c.String(nullable: false, maxLength: 128),
-                        IdNewBuilding = c.Int(nullable: false),
+                        RealtorId = c.String(nullable: false, maxLength: 128),
+                        NewBuildingId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.IdRealtor, t.IdNewBuilding })
-                .ForeignKey("dbo.MoreInfoRealtors", t => t.IdRealtor, cascadeDelete: true)
-                .ForeignKey("dbo.NewBuildings", t => t.IdNewBuilding, cascadeDelete: true)
-                .Index(t => t.IdRealtor)
-                .Index(t => t.IdNewBuilding);
+                .PrimaryKey(t => new { t.RealtorId, t.NewBuildingId })
+                .ForeignKey("dbo.MoreInfoRealtors", t => t.RealtorId, cascadeDelete: true)
+                .ForeignKey("dbo.NewBuildings", t => t.NewBuildingId, cascadeDelete: true)
+                .Index(t => t.RealtorId)
+                .Index(t => t.NewBuildingId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -219,27 +228,27 @@ namespace RealtorsOffice.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.tblRealtorNewApartment", "IdRealtor", "dbo.MoreInfoRealtors");
-            DropForeignKey("dbo.tblRealtorNewApartment", "IdHouse", "dbo.tblNewApartmentsModel");
+            DropForeignKey("dbo.tblRealtorNewApartment", "RealtorId", "dbo.MoreInfoRealtors");
+            DropForeignKey("dbo.tblRealtorNewApartment", "NewApartmentId", "dbo.tblNewApartmentsModel");
             DropForeignKey("dbo.tblNewApartmentsModel", "IdBuilding", "dbo.NewBuildings");
-            DropForeignKey("dbo.tblRealtorNewBuilding", "IdNewBuilding", "dbo.NewBuildings");
-            DropForeignKey("dbo.tblRealtorNewBuilding", "IdRealtor", "dbo.MoreInfoRealtors");
+            DropForeignKey("dbo.tblRealtorNewBuilding", "NewBuildingId", "dbo.NewBuildings");
+            DropForeignKey("dbo.tblRealtorNewBuilding", "RealtorId", "dbo.MoreInfoRealtors");
             DropForeignKey("dbo.Apartments", "NewBuildingModel_Id", "dbo.NewBuildings");
-            DropForeignKey("dbo.tblRealtorHouse", "IdRealtor", "dbo.MoreInfoRealtors");
-            DropForeignKey("dbo.tblRealtorHouse", "IdHouse", "dbo.Houses");
+            DropForeignKey("dbo.tblRealtorHouse", "RealtorId", "dbo.MoreInfoRealtors");
+            DropForeignKey("dbo.tblRealtorHouse", "HouseId", "dbo.Houses");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.tblRealtorNewBuilding", new[] { "IdNewBuilding" });
-            DropIndex("dbo.tblRealtorNewBuilding", new[] { "IdRealtor" });
+            DropIndex("dbo.tblRealtorNewBuilding", new[] { "NewBuildingId" });
+            DropIndex("dbo.tblRealtorNewBuilding", new[] { "RealtorId" });
             DropIndex("dbo.tblNewApartmentsModel", new[] { "IdBuilding" });
-            DropIndex("dbo.tblRealtorNewApartment", new[] { "IdHouse" });
-            DropIndex("dbo.tblRealtorNewApartment", new[] { "IdRealtor" });
-            DropIndex("dbo.tblRealtorHouse", new[] { "IdHouse" });
-            DropIndex("dbo.tblRealtorHouse", new[] { "IdRealtor" });
+            DropIndex("dbo.tblRealtorNewApartment", new[] { "NewApartmentId" });
+            DropIndex("dbo.tblRealtorNewApartment", new[] { "RealtorId" });
+            DropIndex("dbo.tblRealtorHouse", new[] { "HouseId" });
+            DropIndex("dbo.tblRealtorHouse", new[] { "RealtorId" });
             DropIndex("dbo.MoreInfoRealtors", new[] { "Id" });
             DropIndex("dbo.tblRealtorApartment", new[] { "ApartmentlId" });
             DropIndex("dbo.tblRealtorApartment", new[] { "RealtorId" });

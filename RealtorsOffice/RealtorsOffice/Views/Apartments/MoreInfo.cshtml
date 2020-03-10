@@ -1,35 +1,36 @@
-﻿@model IEnumerable<RealtorsOffice.Models.ApartmentsViewModel>
+﻿@model RealtorsOffice.Entity.EntityModel.ApartmentsModel
+
+@{
+    ViewBag.Title = "MoreInfo";
+}
+
+<h2>MoreInfo</h2>
+
+<div>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p class="card-text">Count Rooms: </p>
+
+    <hr />
+
+    <h4>@Html.LabelFor(model => model.Name)</h4>
+        <img src="@Html.LabelFor(model => model.Picture)" width="1000" height="500" />
+
+        <h5>Description</h5>
 
 
-<div class="bg-dark text-white" style="margin-top:20px">
-    <div class="container">
+        <p class="card-text">Count Rooms: @Html.LabelFor(model => model.CountRooms)</p>
+        <p class="card-text">Number Rooms: @Html.LabelFor(model => model.NumberRooms)</p>
+        <p class="card-text">Square: @Html.LabelFor(model => model.Square)</p>
+        <p class="card-text">Parking: @Html.LabelFor(model => model.Parking)</p>
+        <p class="card-text">Repair: @Html.LabelFor(model => model.Repair)</p>
+        <p class="card-text">Floor: @Html.LabelFor(model => model.Floor)</p>
+        <p class="card-text">Street Name: @Html.LabelFor(model => model.StreetName)</p>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <p class="card-text">Count Rooms: </p>
+    <hr />
 
-            <hr />
-
-            @*<h4>@Html.LabelFor(model => model.Name)</h4>
-            <img src="@Html.LabelFor(model => model.Picture)" width="1000" height="500" />
-
-            <h5>Description</h5>
-
-
-            <p class="card-text">Count Rooms: @Html.LabelFor(model => model.CountRooms)</p>
-            <p class="card-text">Number Rooms: @Html.LabelFor(model => model.NumberRooms)</p>
-            <p class="card-text">Square: @Html.LabelFor(model => model.Square)</p>
-            <p class="card-text">Parking: @Html.LabelFor(model => model.Parking)</p>
-            <p class="card-text">Repair: @Html.LabelFor(model => model.Repair)</p>
-            <p class="card-text">Floor: @Html.LabelFor(model => model.Floor)</p>
-            <p class="card-text">Street Name: @Html.LabelFor(model => model.StreetName)</p>*@
-
-            <hr />
-
-        }
-
-    </div>
 </div>
-
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

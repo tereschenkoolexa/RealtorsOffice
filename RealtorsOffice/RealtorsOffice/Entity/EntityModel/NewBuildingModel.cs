@@ -18,6 +18,8 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public string StreetName { get; set; }
         [Required]
+        public string DistrictName { get; set; }
+        [Required]
         public string Picture { get; set; }
         [Required]
         public int Floors { get; set; }

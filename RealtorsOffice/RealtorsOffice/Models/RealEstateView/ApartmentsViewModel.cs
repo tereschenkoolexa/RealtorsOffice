@@ -14,7 +14,7 @@ namespace RealtorsOffice.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int CountRooms { get; set; }
-        public int NumberRooms { get; set; }
+        public string DistrictName { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
         public bool Parking { get; set; }
@@ -31,16 +31,15 @@ namespace RealtorsOffice.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Please, enter Count Rooms")]
-        [Display(Name = "Count Rooms: ")]
+
         public string Name { get; set; }
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }
 
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
-        public int NumberRooms { get; set; }
+        [Required(ErrorMessage = "Please, enter District Name")]
+        [Display(Name = "District Name : ")]
+        public string DistrictName { get; set; }
 
         [Required(ErrorMessage = "Please, enter Price")]
         [Display(Name = "Price: ")]
@@ -84,8 +83,7 @@ namespace RealtorsOffice.Models
     public class ApartmentsEditViewModel
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Please, enter Count Rooms")]
-        [Display(Name = "Count Rooms: ")]
+
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please, enter Count Rooms")]
@@ -94,7 +92,7 @@ namespace RealtorsOffice.Models
 
         [Required(ErrorMessage = "Please, enter Number Rooms")]
         [Display(Name = "Number Rooms: ")]
-        public int NumberRooms { get; set; }
+        public string DistrictName { get; set; }
 
         [Required(ErrorMessage = "Please, enter Price")]
         [Display(Name = "Price: ")]

@@ -55,7 +55,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
             {
                 Id = t.Id,
-                NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,
                 Price = t.Price,
@@ -83,12 +82,14 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create(ApartmentsCreateViewModel model)
         {
+            model.Name = "р-н" + model.DistrictName + "," + model.StreetName;
             if (ModelState.IsValid)
             {
-                _context.Apartments.Add(new ApartmentsModel
+
+                ApartmentsModel data = new ApartmentsModel
                 {
-                    Name= model.Name,
-                    NumberRooms = model.NumberRooms,
+                    DistrictName = model.DistrictName,
+                    Name = model.Name,
                     Parking = model.Parking,
                     Picture = model.Picture,
                     Price = model.Price,
@@ -99,11 +100,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                     City = model.City,
                     Floor = model.Floor,
                     CountRooms = model.CountRooms
-                });
+                };
+
+                _context.Apartments.Add(data);
                 _context.SaveChanges();
                 _context.RealtorApartments.Add(new RealtorApartment
                 {
-                    ApartmentlId = _context.Apartments.Last().Id,
+                    ApartmentlId = data.Id,
                     RealtorId = User.Identity.GetUserId()
                 });
                 _context.SaveChanges();
@@ -120,7 +123,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             ApartmentsEditViewModel model = new ApartmentsEditViewModel()
             {
                 Name = temp.Name,
-                NumberRooms = temp.NumberRooms,
                 Parking = temp.Parking,
                 Picture = temp.Picture,
                 Price = temp.Price,
@@ -146,7 +148,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 var temp = _context.Apartments.FirstOrDefault(t => t.Id == model.Id);
 
                 temp.Name = model.Name;
-                temp.NumberRooms = model.NumberRooms;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
                 temp.Price = model.Price;
@@ -169,7 +170,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         {
             _context.Apartments.Remove(_context.Apartments.FirstOrDefault(t => t.Id == id));
             _context.SaveChanges();
-            return RedirectToAction("Index", "Apartments");
+            return RedirectToAction("List", "Apartments");
         }
     }
 }

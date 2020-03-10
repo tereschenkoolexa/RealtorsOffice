@@ -180,6 +180,7 @@
     <Compile Include="Controllers\RealEstateControllers\HouseController.cs" />
     <Compile Include="Controllers\RealEstateControllers\NewApartamentsController.cs" />
     <Compile Include="Controllers\RealEstateControllers\NewBuildingController.cs" />
+    <Compile Include="Controllers\RealtorController.cs" />
     <Compile Include="Entity\EntityModel\ApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\NewApartmentsModel.cs" />
     <Compile Include="Entity\EntityModel\HouseModel.cs" />
@@ -187,21 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002261754207_ddddd.cs" />
-    <Compile Include="Migrations\202002261754207_ddddd.Designer.cs">
-      <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003011135520_add city.cs" />
-    <Compile Include="Migrations\202003011135520_add city.Designer.cs">
-      <DependentUpon>202003011135520_add city.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003011250429_Add in tblHouse column CountRooms.cs" />
-    <Compile Include="Migrations\202003011250429_Add in tblHouse column CountRooms.Designer.cs">
-      <DependentUpon>202003011250429_Add in tblHouse column CountRooms.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003082137026_Add name column.cs" />
-    <Compile Include="Migrations\202003082137026_Add name column.Designer.cs">
-      <DependentUpon>202003082137026_Add name column.cs</DependentUpon>
+    <Compile Include="Migrations\202003101838018_New database.cs" />
+    <Compile Include="Migrations\202003101838018_New database.Designer.cs">
+      <DependentUpon>202003101838018_New database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -380,11 +369,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Apartments\MoreInfo.cshtml" />
     <Content Include="Views\House\MoreInfo.cshtml" />
     <Content Include="Views\House\Edit.cshtml" />
     <Content Include="Views\House\Create.cshtml" />
     <Content Include="Views\Apartments\List.cshtml" />
+    <Content Include="Views\Apartments\MoreInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +381,7 @@
     <Folder Include="Areas\Realtor\Models\" />
     <Folder Include="Views\NewApartaments\" />
     <Folder Include="Views\NewBuilding\" />
+    <Folder Include="Views\Realtor\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -399,24 +389,15 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002261754207_ddddd.resx">
-      <DependentUpon>202002261754207_ddddd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003011135520_add city.resx">
-      <DependentUpon>202003011135520_add city.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003011250429_Add in tblHouse column CountRooms.resx">
-      <DependentUpon>202003011250429_Add in tblHouse column CountRooms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003082137026_Add name column.resx">
-      <DependentUpon>202003082137026_Add name column.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003101838018_New database.resx">
+      <DependentUpon>202003101838018_New database.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -19,8 +19,6 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public int CountRooms { get; set; }
         [Required]
-        public int NumberRooms { get; set; }
-        [Required]
         public decimal Price { get; set; }
         [Required]
         public double Square { get; set; }
@@ -34,6 +32,8 @@ namespace RealtorsOffice.Entity.EntityModel
         public string Picture { get; set; }
         [Required]
         public int Floor { get; set; }
+        [Required]
+        public string DistrictName { get; set; }
         [Required]
         public string StreetName { get; set; }
         [Required]

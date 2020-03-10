@@ -17,6 +17,7 @@ namespace RealtorsOffice.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -160,6 +161,13 @@ namespace RealtorsOffice.Controllers
                 {
 
                     UserManager.AddToRole(UserManager.FindByEmail(model.Email).Id, "Realtor");
+                    _context.MoreInfoRealtors.Add(new MoreInfoRealtor {
+                        Id = UserManager.FindByEmail(model.Email).Id,
+                        NameCompany = model.CompanyName,
+                        PhoneNumber = model.PhoneNumber
+                    });
+
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

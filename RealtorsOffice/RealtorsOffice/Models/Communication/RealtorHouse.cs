@@ -12,11 +12,11 @@ namespace RealtorsOffice.Models.Communication
     public class RealtorHouse
     {
         [Key, ForeignKey("RealtorOf"), Column(Order = 1)]
-        public string IdRealtor { get; set; }
+        public string RealtorId { get; set; }
         public virtual MoreInfoRealtor RealtorOf { get; set; }
 
         [Key, ForeignKey("HouseOf"), Column(Order = 2)]
-        public int IdHouse { get; set; }
+        public int HouseId { get; set; }
         public virtual HouseModel HouseOf { get; set; }
 
     }

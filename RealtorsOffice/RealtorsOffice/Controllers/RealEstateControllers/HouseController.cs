@@ -41,7 +41,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
             {
                 Id = t.Id,
-                NumberRooms = t.NumberRooms,
+
                 Parking = t.Parking,
                 Picture = t.Picture,
                 Price = t.Price,
@@ -65,7 +65,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
             {
                 Id = t.Id,
-                NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,
                 Price = t.Price,
@@ -95,14 +94,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         {
             _context.RealtorHouses.Add(new RealtorHouse
             {
-                IdHouse = model.Id,
-                IdRealtor = User.Identity.GetUserId()
+                HouseId = model.Id,
+                RealtorId = User.Identity.GetUserId()
             });
             if (ModelState.IsValid)
             {
                 _context.Houses.Add(new HouseModel
                 {
-                    NumberRooms = model.NumberRooms,
                     Parking = model.Parking,
                     Picture = model.Picture,
                     Price = model.Price,
@@ -128,7 +126,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             var temp = _context.Houses.FirstOrDefault(t => t.Id == id);
             HouseEditViewModel model = new HouseEditViewModel()
             {
-                NumberRooms = temp.NumberRooms,
+
                 Parking = temp.Parking,
                 Picture = temp.Picture,
                 Price = temp.Price,
@@ -153,7 +151,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             {
                 var temp = _context.Houses.FirstOrDefault(t => t.Id == model.Id);
 
-                temp.NumberRooms = model.NumberRooms;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
                 temp.Price = model.Price;

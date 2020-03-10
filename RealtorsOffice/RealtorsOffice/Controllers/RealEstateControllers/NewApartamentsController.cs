@@ -26,7 +26,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<NewApartamentsViewModel> listRed = _context.NewApartments.Select(t => new NewApartamentsViewModel
             {
                 Id = t.Id,
-                NumberRooms = t.NumberRooms,
                 Picture = t.Picture,
                 Price = t.Price,
                 Square = t.Square,
@@ -52,14 +51,13 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         {
             _context.RealtorNewApartments.Add(new RealtorNewApartment
             {
-                IdHouse = model.Id,
-                IdRealtor = User.Identity.GetUserId()
+                NewApartmentId = model.Id,
+                RealtorId = User.Identity.GetUserId()
             });
             if (ModelState.IsValid)
             {
                 _context.NewApartments.Add(new NewApartmentsModel
                 {
-                    NumberRooms = model.NumberRooms,
                     Picture = model.Picture,
                     Price = model.Price,
                     Square = model.Square,
@@ -81,7 +79,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             var temp = _context.NewApartments.FirstOrDefault(t => t.Id == id);
             NewApartamentsEditViewModel model = new NewApartamentsEditViewModel()
             {
-                NumberRooms = temp.NumberRooms,
+
                 Picture = temp.Picture,
                 Price = temp.Price,
                 Square = temp.Square,
@@ -102,7 +100,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             {
                 var temp = _context.NewApartments.FirstOrDefault(t => t.Id == model.Id);
 
-                temp.NumberRooms = model.NumberRooms;
+
                 temp.Picture = model.Picture;
                 temp.Price = model.Price;;
                 temp.Square = model.Square;

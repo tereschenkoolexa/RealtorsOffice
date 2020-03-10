@@ -20,8 +20,6 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public int CountRooms { get; set; }
         [Required]
-        public int NumberRooms { get; set; }
-        [Required]
         public decimal Price { get; set; }
         [Required]
         public double Square { get; set; }

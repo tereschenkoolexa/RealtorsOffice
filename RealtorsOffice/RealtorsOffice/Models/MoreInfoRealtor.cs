@@ -14,7 +14,7 @@ namespace RealtorsOffice.Models
         [Key, ForeignKey("RealtorOf")]
         public string Id { get; set; }
         [Required]
-        public List<string> PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         public string NameCompany { get; set; }
 
