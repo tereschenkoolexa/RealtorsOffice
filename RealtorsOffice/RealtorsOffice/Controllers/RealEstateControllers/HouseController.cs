@@ -24,6 +24,45 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
             {
                 Id = t.Id,
+                Picture = t.Picture,
+                Price = t.Price,
+                Square = t.Square
+            }).ToList();
+
+            return View(listRed);
+
+        }
+
+        public ActionResult MoreInfo()
+        {
+
+            List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
+            {
+                Id = t.Id,
+                NumberRooms = t.NumberRooms,
+                Parking = t.Parking,
+                Picture = t.Picture,
+                Price = t.Price,
+                Repair = t.Repair,
+                Square = t.Square,
+                StreetName = t.StreetName,
+                Warming = t.Warming,
+                City = t.City,
+                Floors = t.Floors,
+                CountRooms = t.CountRooms
+            }).ToList();
+
+            return View(listRed);
+
+        }
+
+        [Authorize(Roles = "Realtor")]
+        public ActionResult List()
+        {
+
+            List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
+            {
+                Id = t.Id,
                 NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,

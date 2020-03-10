@@ -20,7 +20,7 @@
             <!-- Links -->
             <ul class="navbar-nav navbar-dark">
                 <li class="nav-item">
-                    <a class="" href="#">@Html.ActionLink("На головну", "Index", "Home", new { @class = "bg-dark text-white loyout-content" })</a>
+                    <a class="bg-dark text-white loyout-content" href="@Url.Action( "Index", "Home")">На головну</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -39,12 +39,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="" href="#">@Html.ActionLink("Контакти", "Contact", "Home", new { @class = "bg-dark text-white loyout-content" })</a>
+                    <a class="bg-dark text-white loyout-content" href="@Url.Action("Contact", "Home")">Контакти</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-dark">
                 <li class="nav-item">
-                    <a class="" href="#">@Html.ActionLink("Кабінет", "Contact", "Home", new { @class = "bg-dark text-white loyout-content" })</a>
+                    <a class="bg-dark text-white loyout-content" href="@Url.Action("Contact", "Home")">Кабінет</a>
                 </li>
             </ul>
             @*<div class="navbar-collapse collapse navbar-right">

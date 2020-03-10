@@ -50,6 +50,23 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
             {
                 Id = t.Id,
+                Picture = t.Picture,
+                Price = t.Price,
+                Square = t.Square,
+                StreetName = t.StreetName,
+            }).ToList();
+
+            return View(listRed);
+
+        }
+
+        [Authorize(Roles = "Realtor")]
+        public ActionResult List()
+        {
+
+            List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
+            {
+                Id = t.Id,
                 NumberRooms = t.NumberRooms,
                 Parking = t.Parking,
                 Picture = t.Picture,

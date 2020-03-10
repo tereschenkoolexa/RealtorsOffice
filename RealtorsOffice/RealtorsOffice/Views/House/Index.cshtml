@@ -1,87 +1,23 @@
 ﻿@model IEnumerable<RealtorsOffice.Models.RealEstateView.HouseViewModel>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CountRooms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberRooms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Square)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Warming)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Repair)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Picture)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Floors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th></th>
-    </tr>
+<div class="bg-dark" style="margin-top:20px">
+    <div class="container">
+        <div id="ListRealEstate" class="row ">
+            @foreach (var item in Model)
+            {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountRooms)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberRooms)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Square)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Warming)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Repair)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Picture)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Floors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+                <div class="col-md-4" style=" margin-top: 15px !important;margin-bottom: 15px !important; padding-left: 15px; padding-right: 15px;">
+                    <div class="card text-dark">
+                        <img class="card-img-top" src="" alt="Card image" width="350" height="250">
+                        <div class="card-body">
+                            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                            <p class="card-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
+                            <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
+                            <a href="@Url.Action("House", "MoreInfo", new { id = item.Id })" class="btn  btn-dark btn-block">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

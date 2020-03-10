@@ -10,6 +10,7 @@ namespace RealtorsOffice.Models.RealEstateView
     {
 
         public int Id { get; set; }
+        public string Name { get; set; }
         public int CountRooms { get; set; }
         public int NumberRooms { get; set; }
         public decimal Price { get; set; }
@@ -26,6 +27,11 @@ namespace RealtorsOffice.Models.RealEstateView
 
     public class HouseCreateViewModel
     {
+
+        [Required(ErrorMessage = "Please, enter Name")]
+        [Display(Name = "Name: ")]
+        public string Name { get; set; }
+
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }
@@ -74,6 +80,11 @@ namespace RealtorsOffice.Models.RealEstateView
     public class HouseEditViewModel
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Please, enter Name")]
+        [Display(Name = "Name: ")]
+        public string Name { get; set; }
+
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }

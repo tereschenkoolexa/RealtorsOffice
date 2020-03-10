@@ -13,15 +13,15 @@
 
             <div class="col-md-4">
                 <img src="~/Image/homre-index-apartment.png" height="550" width="350" style="padding-top:15px" />
-                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Квартири", "Index", "Apartments", new { @class = " btn btn-light button-index btn-block" })</a>
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("Index", "Apartments")">Квартири</a>
             </div>
             <div class="col-md-4">
                 <img src="~/Image/home-index-newBuilding.png" height="550" width="350" style="padding-top:15px"/>
-                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Нові квартири", "Index", "NewBuilding", new { @class = " btn btn-light button-index btn-block" })</a>
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("Index", "NewBuilding")">Нові квартири</a>
             </div>
             <div class="col-md-4">
                 <img src="~/Image/home-index-hous.png" height="550" width="350" style="padding-top:15px"/>
-                <a class="" style=" margin-top: 15px !important;margin-bottom: 15px !important;}">@Html.ActionLink("Котеджі", "Index", "House",  new { @class = " btn btn-light button-index btn-block"})</a>
+                <a class="btn btn-light button-index btn-block" style=" margin-top: 15px !important;margin-bottom: 15px !important;}" href="@Url.Action("Index", "House")">Котеджі</a>
             </div>
         </div>
     </div>
