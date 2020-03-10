@@ -1,5 +1,7 @@
-﻿using RealtorsOffice.Entity.EntityModel;
+﻿using Microsoft.AspNet.Identity;
+using RealtorsOffice.Entity.EntityModel;
 using RealtorsOffice.Models;
+using RealtorsOffice.Models.Communication;
 using RealtorsOffice.Models.RealEstateView;
 using System;
 using System.Collections.Generic;
@@ -52,6 +54,11 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
             if (ModelState.IsValid)
             {
+                _context.RealtorNewBuildings.Add(new RealtorNewBuilding
+                {
+                    IdNewBuilding = model.Id,
+                    IdRealtor = User.Identity.GetUserId()
+                });
                 _context.NewBuildings.Add(new NewBuildingModel
                 {
                     Parking = model.Parking,

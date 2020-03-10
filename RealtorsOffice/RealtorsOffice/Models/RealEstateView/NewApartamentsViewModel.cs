@@ -22,6 +22,8 @@ namespace RealtorsOffice.Models.RealEstateView
 
     public class NewApartamentsCreateViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }
@@ -48,6 +50,7 @@ namespace RealtorsOffice.Models.RealEstateView
     public class NewApartamentsEditViewModel
     {
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }

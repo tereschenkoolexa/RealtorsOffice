@@ -381,6 +381,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Apartments\MoreInfo.cshtml" />
+    <Content Include="Views\House\MoreInfo.cshtml" />
+    <Content Include="Views\House\Edit.cshtml" />
+    <Content Include="Views\House\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

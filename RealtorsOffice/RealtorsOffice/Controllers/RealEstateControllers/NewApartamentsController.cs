@@ -1,5 +1,7 @@
-﻿using RealtorsOffice.Entity.EntityModel;
+﻿using Microsoft.AspNet.Identity;
+using RealtorsOffice.Entity.EntityModel;
 using RealtorsOffice.Models;
+using RealtorsOffice.Models.Communication;
 using RealtorsOffice.Models.RealEstateView;
 using System;
 using System.Collections.Generic;
@@ -40,6 +42,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -47,7 +50,11 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create(NewApartamentsCreateViewModel model)
         {
-
+            _context.RealtorNewApartments.Add(new RealtorNewApartment
+            {
+                IdHouse = model.Id,
+                IdRealtor = User.Identity.GetUserId()
+            });
             if (ModelState.IsValid)
             {
                 _context.NewApartments.Add(new NewApartmentsModel

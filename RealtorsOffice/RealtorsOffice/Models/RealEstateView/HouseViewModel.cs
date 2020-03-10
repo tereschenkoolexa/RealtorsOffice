@@ -27,7 +27,7 @@ namespace RealtorsOffice.Models.RealEstateView
 
     public class HouseCreateViewModel
     {
-
+        public int Id { get; set; }
         [Required(ErrorMessage = "Please, enter Name")]
         [Display(Name = "Name: ")]
         public string Name { get; set; }

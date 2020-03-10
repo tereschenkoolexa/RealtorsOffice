@@ -1,112 +1,29 @@
 ﻿@model IEnumerable<RealtorsOffice.Models.ApartmentsViewModel>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountRooms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberRooms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Square)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Warming)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Repair)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Picture)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Floor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountRooms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberRooms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Square)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Warming)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Repair)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Picture)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Floor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
-    <div class="bg-dark" style="margin-top:20px">
-        <div class="container">
-            <div id="ListRealEstate" class="row ">
+<div class="bg-dark text-white" style="margin-top:20px">
+    <div class="container">
+        @foreach (var item in Model)
+            {
+                <hr />
 
-                @foreach (var item in Model)
-                {
+                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                <img src="@Html.DisplayFor(modelItem => item.Picture)" width="1000" height="500"/>
+                    
+                <h5>Description</h5>
 
-                    <hr />
+                <p class="card-text">Count Rooms: @Html.DisplayFor(modelItem => item.CountRooms)</p>
+                <p class="card-text">Number Rooms: @Html.DisplayFor(modelItem => item.NumberRooms)</p>
+                <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
+                <p class="card-text">Parking: @Html.DisplayFor(modelItem => item.Parking)</p>
+                <p class="card-text">Repair: @Html.DisplayFor(modelItem => item.Repair)</p>
+                <p class="card-text">Floor: @Html.DisplayFor(modelItem => item.Floor)</p>
+                <p class="card-text">Street Name: @Html.DisplayFor(modelItem => item.StreetName)</p>
+                    
+                <hr />
 
+            }
 
-
-                    <hr />
-
-                }
-
-            </div>
-            </div>
-        </div>
+          </div>
+    </div>
     

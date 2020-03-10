@@ -16,7 +16,7 @@
                         <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
                         <p class="card-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
                         <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
-                        <a href="@Url.Action("Apartments", "MoreInfo", new { id = item.Id })" class="btn  btn-dark btn-block">Детальніше</a>
+                        <a href="@Url.Action("MoreInfo","Apartments", new { id = item.Id })" class="btn  btn-dark btn-block">Детальніше</a>
                     </div>
                 </div>
 

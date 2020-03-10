@@ -24,6 +24,8 @@ namespace RealtorsOffice.Models.RealEstateView
     public class NewBuildingCreateViewModel
     {
 
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Please, enter Street Name")]
         [Display(Name = "Street Name: ")]
         public string StreetName { get; set; }

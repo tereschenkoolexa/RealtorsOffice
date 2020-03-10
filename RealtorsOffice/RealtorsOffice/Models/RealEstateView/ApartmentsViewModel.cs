@@ -29,6 +29,8 @@ namespace RealtorsOffice.Models
 
     public class ApartmentsCreateViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public string Name { get; set; }

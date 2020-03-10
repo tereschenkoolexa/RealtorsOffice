@@ -1,5 +1,7 @@
-﻿using RealtorsOffice.Entity.EntityModel;
+﻿using Microsoft.AspNet.Identity;
+using RealtorsOffice.Entity.EntityModel;
 using RealtorsOffice.Models;
+using RealtorsOffice.Models.Communication;
 using RealtorsOffice.Models.RealEstateView;
 using System;
 using System.Collections.Generic;
@@ -91,7 +93,11 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create(HouseCreateViewModel model)
         {
-
+            _context.RealtorHouses.Add(new RealtorHouse
+            {
+                IdHouse = model.Id,
+                IdRealtor = User.Identity.GetUserId()
+            });
             if (ModelState.IsValid)
             {
                 _context.Houses.Add(new HouseModel
