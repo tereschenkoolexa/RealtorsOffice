@@ -26,6 +26,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
             {
                 Id = t.Id,
+                Name = t.Name,
                 Picture = t.Picture,
                 Price = t.Price,
                 Square = t.Square
@@ -35,26 +36,16 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
         }
 
-        public ActionResult MoreInfo()
+        public ActionResult MoreInfo(int id)
         {
 
-            List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
-            {
-                Id = t.Id,
 
-                Parking = t.Parking,
-                Picture = t.Picture,
-                Price = t.Price,
-                Repair = t.Repair,
-                Square = t.Square,
-                StreetName = t.StreetName,
-                Warming = t.Warming,
-                City = t.City,
-                Floors = t.Floors,
-                CountRooms = t.CountRooms
-            }).ToList();
+            HouseModel Apar = _context.Houses.FirstOrDefault(t => t.Id == id);
 
-            return View(listRed);
+
+            return View(Apar);
+
+
 
         }
 
@@ -65,6 +56,8 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<HouseViewModel> listRed = _context.Houses.Select(t => new HouseViewModel
             {
                 Id = t.Id,
+                Name = t.Name,
+                DistrictName = t.DistrictName,
                 Parking = t.Parking,
                 Picture = t.Picture,
                 Price = t.Price,
@@ -92,15 +85,19 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create(HouseCreateViewModel model)
         {
-            _context.RealtorHouses.Add(new RealtorHouse
-            {
-                HouseId = model.Id,
-                RealtorId = User.Identity.GetUserId()
-            });
+            //_context.RealtorHouses.Add(new RealtorHouse
+            //{
+            //    HouseId = model.Id,
+            //    RealtorId = User.Identity.GetUserId()
+            //});
+
+            model.Name = "р-н" + model.DistrictName + ", вул." + model.StreetName;
             if (ModelState.IsValid)
             {
                 _context.Houses.Add(new HouseModel
                 {
+                    Name = model.Name,
+                    DistrictName = model.DistrictName,
                     Parking = model.Parking,
                     Picture = model.Picture,
                     Price = model.Price,
@@ -114,7 +111,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 });
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "House");
+                return RedirectToAction("List", "House");
             }
             return View(model);
         }
@@ -123,10 +120,12 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Edit(int id)
         {
+
             var temp = _context.Houses.FirstOrDefault(t => t.Id == id);
             HouseEditViewModel model = new HouseEditViewModel()
             {
-
+                Name = temp.Name,
+                DistrictName = temp.DistrictName,
                 Parking = temp.Parking,
                 Picture = temp.Picture,
                 Price = temp.Price,
@@ -147,10 +146,12 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Edit(HouseEditViewModel model)
         {
+            model.Name = "р-н" + model.DistrictName + ", вул." + model.StreetName;
             if (ModelState.IsValid)
             {
                 var temp = _context.Houses.FirstOrDefault(t => t.Id == model.Id);
-
+                temp.Name = model.Name;
+                temp.DistrictName = model.DistrictName;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
                 temp.Price = model.Price;
@@ -163,7 +164,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 temp.CountRooms = model.CountRooms;
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "House");
+                return RedirectToAction("List", "House");
             }
             return View(model);
         }
@@ -173,7 +174,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         {
             _context.Houses.Remove(_context.Houses.FirstOrDefault(t => t.Id == id));
             _context.SaveChanges();
-            return RedirectToAction("Index", "House");
+            return RedirectToAction("List", "House");
         }
 
     }

@@ -24,6 +24,20 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
         public ActionResult Index()
         {
+
+            List<NewBuildingViewModel> newBuildings = _context.NewBuildings.Select(t => new NewBuildingViewModel
+            {
+                Id = t.Id,
+                Picture = t.Picture,
+                Floors = t.Floors
+            }).ToList();
+            return View(newBuildings);
+
+        }
+
+        [Authorize(Roles = "Realtor")]
+        public ActionResult List()
+        {
             List<NewBuildingViewModel> listRed = _context.NewBuildings.Select(t => new NewBuildingViewModel
             {
                 Id = t.Id,
@@ -37,6 +51,12 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Floors = t.Floors
             }).ToList();
 
+            return View(listRed);
+        }
+
+        public ActionResult NewApartamentsToList(int id)
+        {
+            List<NewApartmentsModel> listRed = _context.NewBuildings.FirstOrDefault(t => t.Id == id).Apartments.ToList();
             return View(listRed);
         }
 

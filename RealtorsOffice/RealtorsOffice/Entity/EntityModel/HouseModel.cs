@@ -11,7 +11,7 @@ namespace RealtorsOffice.Entity.EntityModel
     [Table("Houses")]
     public class HouseModel
     {
-        [Key]
+        [Key, ForeignKey("RealtorHousesOf")]
         public int Id { get; set; }
 
         [Required]
@@ -38,6 +38,7 @@ namespace RealtorsOffice.Entity.EntityModel
         public int Floors { get; set; }
         [Required]
         public string City { get; set; }
-        public virtual ICollection<RealtorHouse> RealtorHouses { get; set; }
+
+        public virtual ICollection<RealtorHouse> RealtorHousesOf { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public string City { get; set; }
 
-        public virtual ICollection<ApartmentsModel> Apartments { get; set; }
+        public virtual ICollection<NewApartmentsModel> Apartments { get; set; }
         public virtual ICollection<RealtorNewBuilding> RealtorNewBuildingOf { get; set; }
     }
 }

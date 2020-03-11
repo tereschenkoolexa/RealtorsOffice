@@ -1,22 +1,25 @@
 ﻿@model IEnumerable<RealtorsOffice.Models.RealEstateView.HouseViewModel>
 
-<div class="bg-dark" style="margin-top:20px">
-    <div class="container">
-        <div id="ListRealEstate" class="row ">
-            @foreach (var item in Model)
-            {
-                <div class="col-md-4" style=" margin-top: 15px !important;margin-bottom: 15px !important; padding-left: 15px; padding-right: 15px;">
-                    <div class="card text-dark">
-                        <img class="card-img-top" src="" alt="Card image" width="350" height="250">
-                        <div class="card-body">
-                            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
-                            <p class="card-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
-                            <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
-                            <a href="@Url.Action( "MoreInfo","House", new { id = item.Id })" class="btn btn-dark btn-block">Детальніше</a>
+    <div class="bg-dark" style="margin-top:20px">
+        <div class="container">
+            <div id="ListRealEstate" class="row ">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4" style=" margin-top: 15px !important;margin-bottom: 15px !important;">
+                        <div style=" padding-left: 15px; padding-right: 15px;">
+                            <div class="card text-dark">
+                                <img class="card-img-top" src="" alt="Card image" width="350" height="250">
+                                <div class="card-body">
+                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                                    <p class="card-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
+                                    <p class="card-text">Square: @Html.DisplayFor(modelItem => item.Square)</p>
+                                    <a href="@Url.Action("MoreInfo","House", new { id = item.Id })" class="btn  btn-dark btn-block">Детальніше</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
-</div>

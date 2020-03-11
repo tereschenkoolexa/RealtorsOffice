@@ -14,10 +14,12 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
     {
 
         ApplicationDbContext _context;
+        MoreInfoRealtor moreInfoRealtor;
 
         public ApartmentsController()
         {
             _context = new ApplicationDbContext();
+            //moreInfoRealtor = _context.MoreInfoRealtors.FirstOrDefault(t => t.Id == User.Identity.GetUserId());
         }
 
 
@@ -41,7 +43,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Picture = t.Picture,
                 Price = t.Price,
                 Square = t.Square,
-                StreetName = t.StreetName,
+                Name = t.Name
             }).ToList();
 
             return View(listRed);
@@ -55,6 +57,8 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
             {
                 Id = t.Id,
+                DistrictName = t.DistrictName,
+                Name = t.Name,
                 Parking = t.Parking,
                 Picture = t.Picture,
                 Price = t.Price,
@@ -82,7 +86,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Create(ApartmentsCreateViewModel model)
         {
-            model.Name = "р-н" + model.DistrictName + "," + model.StreetName;
+            model.Name = "р-н" + model.DistrictName + ", вул." + model.StreetName;
             if (ModelState.IsValid)
             {
 
@@ -104,12 +108,15 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
 
                 _context.Apartments.Add(data);
                 _context.SaveChanges();
-                _context.RealtorApartments.Add(new RealtorApartment
-                {
-                    ApartmentlId = data.Id,
-                    RealtorId = User.Identity.GetUserId()
-                });
-                _context.SaveChanges();
+
+                
+
+                //_context.RealtorApartments.Add(new RealtorApartment
+                //{
+                //    ApartmentlId = data.Id,
+                //    RealtorId = moreInfoRealtor.Id
+                //});
+                //_context.SaveChanges();
                 return RedirectToAction("List", "Apartments");
             }
             return View(model);
@@ -122,6 +129,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
             var temp = _context.Apartments.FirstOrDefault(t => t.Id == id);
             ApartmentsEditViewModel model = new ApartmentsEditViewModel()
             {
+                DistrictName = temp.DistrictName,
                 Name = temp.Name,
                 Parking = temp.Parking,
                 Picture = temp.Picture,
@@ -143,10 +151,11 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult Edit(ApartmentsEditViewModel model)
         {
+            model.Name = "р-н" + model.DistrictName + ", вул." + model.StreetName;
             if (ModelState.IsValid)
             {
                 var temp = _context.Apartments.FirstOrDefault(t => t.Id == model.Id);
-
+                temp.DistrictName = model.DistrictName;
                 temp.Name = model.Name;
                 temp.Parking = model.Parking;
                 temp.Picture = model.Picture;
@@ -169,6 +178,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         public ActionResult Delete(int id)
         {
             _context.Apartments.Remove(_context.Apartments.FirstOrDefault(t => t.Id == id));
+            _context.RealtorApartments.Remove(_context.RealtorApartments.FirstOrDefault(t => t.ApartmentlId == id));
             _context.SaveChanges();
             return RedirectToAction("List", "Apartments");
         }

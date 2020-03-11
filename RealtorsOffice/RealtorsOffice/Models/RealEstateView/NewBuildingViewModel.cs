@@ -12,6 +12,7 @@ namespace RealtorsOffice.Models.RealEstateView
         public int Id { get; set; }
         public string StreetName { get; set; }
         public string Picture { get; set; }
+        public string DistrictName { get; set; }
         public int Floors { get; set; }
         public bool Parking { get; set; }
         public bool Warming { get; set; }
@@ -29,6 +30,9 @@ namespace RealtorsOffice.Models.RealEstateView
         [Required(ErrorMessage = "Please, enter Street Name")]
         [Display(Name = "Street Name: ")]
         public string StreetName { get; set; }
+        [Required(ErrorMessage = "Please, enter District Rooms")]
+        [Display(Name = "District Rooms: ")]
+        public string DistrictName { get; set; }
         [Required(ErrorMessage = "Please, enter Picture")]
         [Display(Name = "Picture: ")]
         public string Picture { get; set; }
@@ -60,6 +64,9 @@ namespace RealtorsOffice.Models.RealEstateView
         [Required(ErrorMessage = "Please, enter Street Name")]
         [Display(Name = "Street Name: ")]
         public string StreetName { get; set; }
+        [Required(ErrorMessage = "Please, enter District Rooms")]
+        [Display(Name = "District Rooms: ")]
+        public string DistrictName { get; set; }
         [Required(ErrorMessage = "Please, enter Picture")]
         [Display(Name = "Picture: ")]
         public string Picture { get; set; }

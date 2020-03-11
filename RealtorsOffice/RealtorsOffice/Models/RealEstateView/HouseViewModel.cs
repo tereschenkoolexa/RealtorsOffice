@@ -12,7 +12,7 @@ namespace RealtorsOffice.Models.RealEstateView
         public int Id { get; set; }
         public string Name { get; set; }
         public int CountRooms { get; set; }
-        public int NumberRooms { get; set; }
+        public string DistrictName { get; set; }
         public decimal Price { get; set; }
         public double Square { get; set; }
         public bool Parking { get; set; }
@@ -35,9 +35,9 @@ namespace RealtorsOffice.Models.RealEstateView
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
-        public int NumberRooms { get; set; }
+        [Required(ErrorMessage = "Please, enter District Rooms")]
+        [Display(Name = "District Rooms: ")]
+        public string DistrictName { get; set; }
 
         [Required(ErrorMessage = "Please, enter Price")]
         [Display(Name = "Price: ")]
@@ -55,8 +55,8 @@ namespace RealtorsOffice.Models.RealEstateView
         [Display(Name = "Warming: ")]
         public bool Warming { get; set; }
 
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+        [Required(ErrorMessage = "Please, enter Repair")]
+        [Display(Name = "Repair: ")]
         public bool Repair { get; set; }
 
         [Required(ErrorMessage = "Please, enter Picture")]
@@ -88,9 +88,9 @@ namespace RealtorsOffice.Models.RealEstateView
         [Required(ErrorMessage = "Please, enter Count Rooms")]
         [Display(Name = "Count Rooms: ")]
         public int CountRooms { get; set; }
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
-        public int NumberRooms { get; set; }
+        [Required(ErrorMessage = "Please, enter District Rooms")]
+        [Display(Name = "District Rooms: ")]
+        public string DistrictName { get; set; }
 
         [Required(ErrorMessage = "Please, enter Price")]
         [Display(Name = "Price: ")]
@@ -108,8 +108,8 @@ namespace RealtorsOffice.Models.RealEstateView
         [Display(Name = "Warming: ")]
         public bool Warming { get; set; }
 
-        [Required(ErrorMessage = "Please, enter Number Rooms")]
-        [Display(Name = "Number Rooms: ")]
+        [Required(ErrorMessage = "Please, enter Repair")]
+        [Display(Name = "Repair: ")]
         public bool Repair { get; set; }
 
         [Required(ErrorMessage = "Please, enter Picture")]

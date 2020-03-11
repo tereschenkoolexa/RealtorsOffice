@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202003101838018_New database.Designer.cs">
       <DependentUpon>202003101838018_New database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003110927474_Update.cs" />
+    <Compile Include="Migrations\202003110927474_Update.Designer.cs">
+      <DependentUpon>202003110927474_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\RealEstateView\ApartmentsViewModel.cs" />
@@ -358,7 +362,6 @@
     <Content Include="Views\Apartments\Index.cshtml" />
     <Content Include="Views\Apartments\Create.cshtml" />
     <Content Include="Views\Apartments\Edit.cshtml" />
-    <Content Include="Views\House\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -369,18 +372,22 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\House\MoreInfo.cshtml" />
-    <Content Include="Views\House\Edit.cshtml" />
-    <Content Include="Views\House\Create.cshtml" />
     <Content Include="Views\Apartments\List.cshtml" />
     <Content Include="Views\Apartments\MoreInfo.cshtml" />
+    <Content Include="Views\House\Index.cshtml" />
+    <Content Include="Views\House\List.cshtml" />
+    <Content Include="Views\House\Edit.cshtml" />
+    <Content Include="Views\House\Create.cshtml" />
+    <Content Include="Views\House\MoreInfo.cshtml" />
+    <Content Include="Views\NewBuilding\Edit.cshtml" />
+    <Content Include="Views\NewBuilding\Create.cshtml" />
+    <Content Include="Views\NewBuilding\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Realtor\Models\" />
     <Folder Include="Views\NewApartaments\" />
-    <Folder Include="Views\NewBuilding\" />
     <Folder Include="Views\Realtor\" />
   </ItemGroup>
   <ItemGroup>
@@ -397,6 +404,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003101838018_New database.resx">
       <DependentUpon>202003101838018_New database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110927474_Update.resx">
+      <DependentUpon>202003110927474_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

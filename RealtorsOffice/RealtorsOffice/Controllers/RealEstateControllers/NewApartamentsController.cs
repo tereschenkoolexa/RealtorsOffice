@@ -29,7 +29,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Picture = t.Picture,
                 Price = t.Price,
                 Square = t.Square,
-                Floor = t.Floor,
                 CountRooms = t.CountRooms,
                 IdBuilding = t.IdBuilding
             }).ToList();
@@ -61,7 +60,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                     Picture = model.Picture,
                     Price = model.Price,
                     Square = model.Square,
-                    Floor = model.Floor,
                     CountRooms = model.CountRooms,
                     IdBuilding = model.IdBuilding
                 });
@@ -83,7 +81,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 Picture = temp.Picture,
                 Price = temp.Price,
                 Square = temp.Square,
-                Floor = temp.Floor,
                 CountRooms = temp.CountRooms,
                 Id = temp.Id,
                 IdBuilding = temp.IdBuilding
@@ -104,7 +101,6 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
                 temp.Picture = model.Picture;
                 temp.Price = model.Price;;
                 temp.Square = model.Square;
-                temp.Floor = model.Floor;
                 temp.CountRooms = model.CountRooms;
                 _context.SaveChanges();
 

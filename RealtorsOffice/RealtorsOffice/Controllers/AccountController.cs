@@ -167,7 +167,7 @@ namespace RealtorsOffice.Controllers
                         PhoneNumber = model.PhoneNumber
                     });
 
-
+                    _context.SaveChanges();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
