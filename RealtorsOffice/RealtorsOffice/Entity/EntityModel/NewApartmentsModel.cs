@@ -28,7 +28,7 @@ namespace RealtorsOffice.Entity.EntityModel
         [Required]
         public int Floor { get; set; }
 
-        [ForeignKey("NewBuildingOf")]
+        //[ForeignKey("NewBuildingOf")]
         public int IdBuilding { get; set; }
         public virtual NewBuildingModel NewBuildingOf { get; set; }
 

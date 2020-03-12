@@ -188,13 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003101838018_New database.cs" />
-    <Compile Include="Migrations\202003101838018_New database.Designer.cs">
-      <DependentUpon>202003101838018_New database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003110927474_Update.cs" />
-    <Compile Include="Migrations\202003110927474_Update.Designer.cs">
-      <DependentUpon>202003110927474_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202003111718522_all tables.cs" />
+    <Compile Include="Migrations\202003111718522_all tables.Designer.cs">
+      <DependentUpon>202003111718522_all tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -327,13 +323,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -402,11 +391,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003101838018_New database.resx">
-      <DependentUpon>202003101838018_New database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003110927474_Update.resx">
-      <DependentUpon>202003110927474_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003111718522_all tables.resx">
+      <DependentUpon>202003111718522_all tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

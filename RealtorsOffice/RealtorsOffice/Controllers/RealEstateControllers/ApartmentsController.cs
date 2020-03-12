@@ -19,7 +19,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         public ApartmentsController()
         {
             _context = new ApplicationDbContext();
-            //moreInfoRealtor = _context.MoreInfoRealtors.FirstOrDefault(t => t.Id == User.Identity.GetUserId());
+            
         }
 
 
@@ -53,7 +53,7 @@ namespace RealtorsOffice.Controllers.RealEstateControllers
         [Authorize(Roles = "Realtor")]
         public ActionResult List()
         {
-
+            moreInfoRealtor = _context.MoreInfoRealtors.FirstOrDefault(t => t.Id == User.Identity.GetUserId());
             List<ApartmentsViewModel> listRed = _context.Apartments.Select(t => new ApartmentsViewModel
             {
                 Id = t.Id,

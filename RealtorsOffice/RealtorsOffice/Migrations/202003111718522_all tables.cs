@@ -3,7 +3,7 @@ namespace RealtorsOffice.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Newdatabase : DbMigration
+    public partial class alltables : DbMigration
     {
         public override void Up()
         {
@@ -24,11 +24,8 @@ namespace RealtorsOffice.Migrations
                         DistrictName = c.String(nullable: false),
                         StreetName = c.String(nullable: false),
                         City = c.String(nullable: false),
-                        NewBuildingModel_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.NewBuildings", t => t.NewBuildingModel_Id)
-                .Index(t => t.NewBuildingModel_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.tblRealtorApartment",
@@ -113,10 +110,11 @@ namespace RealtorsOffice.Migrations
                         Picture = c.String(nullable: false),
                         Floor = c.Int(nullable: false),
                         IdBuilding = c.Int(nullable: false),
+                        NewBuildingOf_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.NewBuildings", t => t.IdBuilding, cascadeDelete: true)
-                .Index(t => t.IdBuilding);
+                .ForeignKey("dbo.NewBuildings", t => t.NewBuildingOf_Id)
+                .Index(t => t.NewBuildingOf_Id);
             
             CreateTable(
                 "dbo.NewBuildings",
@@ -230,10 +228,9 @@ namespace RealtorsOffice.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.tblRealtorNewApartment", "RealtorId", "dbo.MoreInfoRealtors");
             DropForeignKey("dbo.tblRealtorNewApartment", "NewApartmentId", "dbo.tblNewApartmentsModel");
-            DropForeignKey("dbo.tblNewApartmentsModel", "IdBuilding", "dbo.NewBuildings");
             DropForeignKey("dbo.tblRealtorNewBuilding", "NewBuildingId", "dbo.NewBuildings");
             DropForeignKey("dbo.tblRealtorNewBuilding", "RealtorId", "dbo.MoreInfoRealtors");
-            DropForeignKey("dbo.Apartments", "NewBuildingModel_Id", "dbo.NewBuildings");
+            DropForeignKey("dbo.tblNewApartmentsModel", "NewBuildingOf_Id", "dbo.NewBuildings");
             DropForeignKey("dbo.tblRealtorHouse", "RealtorId", "dbo.MoreInfoRealtors");
             DropForeignKey("dbo.tblRealtorHouse", "HouseId", "dbo.Houses");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
@@ -244,7 +241,7 @@ namespace RealtorsOffice.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.tblRealtorNewBuilding", new[] { "NewBuildingId" });
             DropIndex("dbo.tblRealtorNewBuilding", new[] { "RealtorId" });
-            DropIndex("dbo.tblNewApartmentsModel", new[] { "IdBuilding" });
+            DropIndex("dbo.tblNewApartmentsModel", new[] { "NewBuildingOf_Id" });
             DropIndex("dbo.tblRealtorNewApartment", new[] { "NewApartmentId" });
             DropIndex("dbo.tblRealtorNewApartment", new[] { "RealtorId" });
             DropIndex("dbo.tblRealtorHouse", new[] { "HouseId" });
@@ -252,7 +249,6 @@ namespace RealtorsOffice.Migrations
             DropIndex("dbo.MoreInfoRealtors", new[] { "Id" });
             DropIndex("dbo.tblRealtorApartment", new[] { "ApartmentlId" });
             DropIndex("dbo.tblRealtorApartment", new[] { "RealtorId" });
-            DropIndex("dbo.Apartments", new[] { "NewBuildingModel_Id" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
